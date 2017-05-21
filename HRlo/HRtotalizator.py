@@ -43,7 +43,7 @@ class TotalizatorName:
 
     @classmethod
     def name(self, value):
-        for k, v in self.from_name_to_HRname.items():
+        for k, v in list(self.from_name_to_HRname.items()):
             if v == value:
                 return k 
 
@@ -53,19 +53,19 @@ class TotalizatorName:
 
     @classmethod
     def is_name(self, value):
-        return value in self.from_name_to_HRname.keys()
+        return value in list(self.from_name_to_HRname.keys())
 
     @classmethod
     def is_description(self, value):
-        return value in self.from_name_to_HRname.values()
+        return value in list(self.from_name_to_HRname.values())
 
     @classmethod
     def all_names(self):
-        return self.from_name_to_HRname.keys()
+        return list(self.from_name_to_HRname.keys())
 
     @classmethod
     def all_descriptions(self):
-        return self.from_name_to_HRname.values()
+        return list(self.from_name_to_HRname.values())
 
 
 
@@ -119,7 +119,7 @@ class HRtotalizator (OrderedDict):
             self[name] = _totalizator
 
     def report(self):
-        return "\n".join([i.report() for i in self.values()])
+        return "\n".join([i.report() for i in list(self.values())])
 
     def get_totalizator(self, key):
         if TotalizatorName().is_name(key):
@@ -176,10 +176,10 @@ def main():
     hr_tot = HRtotalizator(hr_get.totalizators())
 
     if args.totalizators:
-        print(hr_tot.report())
+        print((hr_tot.report()))
 
     if args.get_totalizator:
-        print(hr_tot.get_value(args.get_totalizator))
+        print((hr_tot.get_value(args.get_totalizator)))
 
 
 if __name__ == '__main__':

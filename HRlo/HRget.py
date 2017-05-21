@@ -35,14 +35,14 @@ class HRget(object):
         self.cookies = self.session.cookies
 
         if self.verbose > 1:
-           print (">>>USERNAME>>>", self.HRauth.username())
-           print (">>>IDEMPLOY>>>", self.HRauth.idemploy())
+           print((">>>USERNAME>>>", self.HRauth.username()))
+           print((">>>IDEMPLOY>>>", self.HRauth.idemploy()))
            #print ("[{}]@{}".format(__class__.__name__, sys._getframe().f_code.co_name))
-           print (">>>CODE>>>", self.post.status_code)
-           print (">>>HISTORY>>>", self.post.history)
-           print (">>>HEADERS>>>", self.post.headers)
-           print (">>>COOKIES>>>", self.post.cookies)
-           print (">>>LOCATION>>>", self.post.headers['location'])
+           print((">>>CODE>>>", self.post.status_code))
+           print((">>>HISTORY>>>", self.post.history))
+           print((">>>HEADERS>>>", self.post.headers))
+           print((">>>COOKIES>>>", self.post.cookies))
+           print((">>>LOCATION>>>", self.post.headers['location']))
            #print (">>>PAGE>>>", self.post.text)
 
 
@@ -99,8 +99,8 @@ class HRget(object):
            last_day = datetime.datetime.today().day
 
         if self.verbose > 1:
-            print (">>>NUMDAYMONTH>>>", num_days_in_month)
-            print (">>>LASTDAY>>>", last_day)
+            print((">>>NUMDAYMONTH>>>", num_days_in_month))
+            print((">>>LASTDAY>>>", last_day))
 
         headers = {
         #           'Pragma': 'no-cache',
@@ -162,8 +162,8 @@ class HRget(object):
             d = d[day-1]
         
         if self.verbose > 1:
-            print ('>>>FIELDS>>>', f)
-            print ('>>>DATA>>>', d)
+            print(('>>>FIELDS>>>', f))
+            print(('>>>DATA>>>', d))
 
             #for i, item in enumerate(f):
             #    print( item, ' = ', d[i])
@@ -418,7 +418,7 @@ def main ():
 
         if args.verbose:
             for k, v in zip(djson['Fields'], djson['Data']):
-                print(k, " = ", v)
+                print((k, " = ", v))
 
 
     if args.totalizators:
@@ -428,7 +428,7 @@ def main ():
         if args.verbose:
             for d in djson['Data']:
                 for k, v in zip(djson['Fields'], d):
-                    print(k, " = ", v)
+                    print((k, " = ", v))
                 print()
 
 

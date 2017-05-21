@@ -62,7 +62,7 @@ class HashedDict (dict):
         return self.key_table[key]
 
     def __keytransforminverse__(self, key):
-        for k, v in self.key_table.items():
+        for k, v in list(self.key_table.items()):
            if v == key:
               return k
 
@@ -73,10 +73,10 @@ class HashedDict (dict):
         return super(HashedDict,self).__getitem__(self.__keytransform__(key))
 
     def __str__(self):
-        return str( {self.__keytransforminverse__(k): v for k, v in self.items()} )
+        return str( {self.__keytransforminverse__(k): v for k, v in list(self.items())} )
 
     def __repr__(self):
-        return repr( {self.__keytransforminverse__(k): v for k, v in self.items()} )
+        return repr( {self.__keytransforminverse__(k): v for k, v in list(self.items())} )
 
     def _get (self, key):
         return super(HashedDict,self).__getitem__(key)

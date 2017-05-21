@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 import unittest
 import datetime
-from daylog import DayLog
+from .daylog import DayLog
 
 class test_day_null(unittest.TestCase):
 

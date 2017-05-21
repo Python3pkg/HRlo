@@ -45,22 +45,22 @@ def main():
 
         dl = DayLog(datetime.datetime.today(), args.time_interval)
 
-        print("{} = {}".format("Time Interval", dl.uptime()))
+        print(("{} = {}".format("Time Interval", dl.uptime())))
 
 
     if args.hr2seconds:
 
-        print("{} = {:.0f}".format("Seconds", utils.hr2seconds(args.hr2seconds)) )
+        print(("{} = {:.0f}".format("Seconds", utils.hr2seconds(args.hr2seconds)) ))
 
 
     if args.hr2time:
 
-        print("{} = {}".format("Time [HH:MM:SS]", utils.hr2time(args.hr2time, True)) )
+        print(("{} = {}".format("Time [HH:MM:SS]", utils.hr2time(args.hr2time, True)) ))
 
 
     if args.time_sum:
         time_sum = utils.time_sum(args.time_sum)
-        print(dayutils.sec2str(time_sum.total_seconds()))
+        print((dayutils.sec2str(time_sum.total_seconds())))
 
 
 if __name__ == '__main__':

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 import datetime
-import dayutils
+from . import dayutils
 
-from daylog import DayLog
+from .daylog import DayLog
 
 class DayLogList(list):
 

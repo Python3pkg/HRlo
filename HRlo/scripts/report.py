@@ -40,7 +40,7 @@ def exclude(l, config=None):
     # get dict with key and list of values
     exclude = get_values_from_config(config, 'exclude')
     # exclude workers with key==value from list
-    for key, values in exclude.items():
+    for key, values in list(exclude.items()):
         for v in values:
             l = [ w for w in l if v not in w[key] ]
     return l
@@ -50,14 +50,14 @@ def remove(l, config=None):
     # get dict with key and list of values
     remove = get_values_from_config(config, 'remove')
     # remove workers with key==value from list
-    for key, values in remove.items():
+    for key, values in list(remove.items()):
         for v in values:
             l = [ w for w in l if v not in w[key] ]
     return l
 
 
 def monitor(l, m, config=None):
-    for key, values in get_values_from_config(config, 'monitor').items():
+    for key, values in list(get_values_from_config(config, 'monitor').items()):
         for v in values:
             if not m.get(v): m[v] = set()
             for w in l:
@@ -69,7 +69,7 @@ def monitor(l, m, config=None):
 
 def refine(l, config=None):
     d = {}
-    for key, values in get_values_from_config(config, 'refine').items():
+    for key, values in list(get_values_from_config(config, 'refine').items()):
         d[key] = {}
         for v in values:
             d[key][v] = [ w for w in l if v in w[key] ]
@@ -78,7 +78,7 @@ def refine(l, config=None):
 
 def allowed_list(config=None):
     l = []
-    for key, values in get_values_from_config(config, 'allowed').items():
+    for key, values in list(get_values_from_config(config, 'allowed').items()):
         # names of workers
         if key == 'name':
             l.extend(values)
@@ -138,14 +138,14 @@ def report(**kwargs):
 
         monitor(_presents, dmonitor, config.get('config_file'))
 
-    dmonitor = {k: sorted(v) for k, v in dmonitor.items()}
+    dmonitor = {k: sorted(v) for k, v in list(dmonitor.items())}
 
     log.log("{:10s} {}".format('Presents', stats_str(presents_list, list_total)))
 
     refined_total = refine(list_total, config.get('config_file'))
     refined_presents = refine(presents_list, config.get('config_file'))
 
-    for option, dv in get_values_from_config(config.get('config_file'), 'refine').items():
+    for option, dv in list(get_values_from_config(config.get('config_file'), 'refine').items()):
         for k in dv:
            t = refined_total[option][k]
            l = refined_presents[option][k]
@@ -155,7 +155,7 @@ def report(**kwargs):
 
     log.log(", ".join(sorted(presents_name)))
 
-    for key, value in dmonitor.items():
+    for key, value in list(dmonitor.items()):
         log.log("{:20s}: {}".format(key, stats_str(value, list_total)))
         if config.get('verbose', 0) > 0:
             log.log(", ".join(value))

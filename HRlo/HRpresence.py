@@ -236,7 +236,7 @@ def main():
 
     if args.presence:
         for name in args.presence:
-            print(p.report(name))
+            print((p.report(name)))
 
     if args.file_out and args.file_format == 'csv':
         p.dump_csv(args.file_out)

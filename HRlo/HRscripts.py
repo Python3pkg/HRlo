@@ -5,6 +5,7 @@ import datetime
 import argparse
 
 from .scripts import dump_presents, report, monitor
+import collections
 
 def add_parser(parser):
 
@@ -50,8 +51,8 @@ def main():
 
     dargs=vars(args)
 
-    for k, v in dargs.items():
-        if callable(v):
+    for k, v in list(dargs.items()):
+        if isinstance(v, collections.Callable):
             v(**dargs)
 
 

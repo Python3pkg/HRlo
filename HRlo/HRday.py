@@ -104,7 +104,7 @@ class HRday(DayLog):
         # get mission benefits
         self['mission'] = self.mission()
         # get HR times
-        for k in self.time_hash.keys():
+        for k in list(self.time_hash.keys()):
            self['HR times'][k] = self._get_hr_time(self.time_hash[k])
 
         # ... end get data from HR
@@ -283,7 +283,7 @@ class HRday(DayLog):
        a['lunch'] = self['lunch'] + other['lunch']
        a['mission'] = self['mission'] + other['mission']
 
-       for k in self['HR times'].keys():
+       for k in list(self['HR times'].keys()):
           a['HR times'][k] = self['HR times'][k] + other['HR times'][k]
 
        for k in self.times_to_add:

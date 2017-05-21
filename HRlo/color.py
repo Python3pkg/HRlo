@@ -40,5 +40,5 @@ if __name__ == '__main__':
 
    col = color(BOLDRED)( str )
 
-   print( col(s1) )
+   print(( col(s1) ))
 

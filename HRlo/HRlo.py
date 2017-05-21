@@ -175,8 +175,8 @@ class HRlo(object):
                    days.append(d)
        if self.config.get('verbose'):
            if days:
-               print("number of days =", len(days))
-               print("days =", ", ".join([str(d['date'].date()) for d in days]))
+               print(("number of days =", len(days)))
+               print(("days =", ", ".join([str(d['date'].date()) for d in days])))
        return t
 
 
@@ -185,7 +185,7 @@ class HRlo(object):
        if _anomalies:
            col = color.color(color.RED)( str )
            warning = "WARNING : {} anomalies found : {}".format(len(_anomalies),  [ str(d.day().date()) for d in _anomalies ] )
-           print( col(warning) )
+           print(( col(warning) ))
        return _anomalies
 
 
@@ -302,36 +302,36 @@ def main():
 
 
    if args.from_day and args.to_day and not args.report_keys:
-       print(hr.report(args.from_day, args.to_day))
+       print((hr.report(args.from_day, args.to_day)))
 
    if args.daily:
-       print(hr.report_day())
+       print((hr.report_day()))
 
    if args.weekly:
-       print(hr.report_week())
+       print((hr.report_week()))
 
    if args.monthly:
-       print(hr.report_month())
+       print((hr.report_month()))
 
    if args.week_monthly:
-       print(hr.report_month_weeks())
+       print((hr.report_month_weeks()))
 
    if args.phone_name or args.phone_number:
-       print(hr.phone(names = args.phone_name, phones = args.phone_number))
+       print((hr.phone(names = args.phone_name, phones = args.phone_number)))
 
    if args.presence:
-       print(hr.presence(args.presence))
+       print((hr.presence(args.presence)))
 
    if args.totalizators or args.get_totalizator:
-       print(hr.totalizator(args.get_totalizator))
+       print((hr.totalizator(args.get_totalizator)))
 
    if args.report_keys:
        if args.from_day and args.to_day:
-           print(hr.report_keys(args.report_keys, args.from_day, args.to_day))
+           print((hr.report_keys(args.report_keys, args.from_day, args.to_day)))
        elif not args.from_day and args.to_day:
-           print(hr.report_keys(args.report_keys, to_day=args.to_day))
+           print((hr.report_keys(args.report_keys, to_day=args.to_day)))
        else:
-           print(hr.report_keys(args.report_keys))
+           print((hr.report_keys(args.report_keys)))
 
    if not args.daily and not args.weekly and not args.monthly and not args.week_monthly \
       and not args.from_day \

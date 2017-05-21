@@ -4,8 +4,8 @@ import sys
 import datetime
 import argparse
 
-import dayutils
-import daylog
+from . import dayutils
+from . import daylog
 
 class Logs:
 
@@ -203,7 +203,7 @@ class Logs:
       """Return a list (with length of ranges) of a list of daylogs that satisfy : function() == index of ranges"""
       return [ [j for j in getattr(self, function)(i) ] for i in ranges]
 
-   def get_uptime_by_day(self, ranges = range(7)):
+   def get_uptime_by_day(self, ranges = list(range(7))):
       """Return a list of list of daylogs accordling to weekday index.
       Default day ranges [0:7].
       0 is Monday
@@ -214,7 +214,7 @@ class Logs:
       # return uptime of DayLogs sum
       return  [ self.daylog_sum(i).uptime() for i in l]
 
-   def get_uptime_by_month(self, ranges = range(1, 13)):
+   def get_uptime_by_month(self, ranges = list(range(1, 13))):
       """Return a list of list of daylogs accordling to month index of ranges.
       Default month ranges [1:13].
       1 is January"""
@@ -223,7 +223,7 @@ class Logs:
       # return uptime of DayLogs sum
       return  [ self.daylog_sum(i).uptime() for i in l]
 
-   def get_uptime_by_year(self, ranges = range(0, datetime.datetime.today().year)):
+   def get_uptime_by_year(self, ranges = list(range(0, datetime.datetime.today().year))):
       """Return a list of list of daylogs accordling to year index of ranges.
       Default year ranges [0:taday's year]."""
       # return a list of list of DayLog devided by year
@@ -321,12 +321,12 @@ def main():
        if v and isinstance(v, bool):
           d = getattr(a, k)()
           if d:
-             print( "%s : %s" % (re.sub('_', ' ', k).ljust(15), d) )
+             print(( "%s : %s" % (re.sub('_', ' ', k).ljust(15), d) ))
 
    #for i in a.get_logs():
    #   print( i.uptime(), i.date() )
 
-   print( a.report())
+   print(( a.report()))
 
 
 if __name__ == '__main__':

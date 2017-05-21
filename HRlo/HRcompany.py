@@ -51,7 +51,7 @@ def main():
     args = parser.parse_args()
 
     if args.list_keys:
-       print( "\n".join(sorted(HRpresence.presence.from_key_to_HRkey.keys())) )
+       print(( "\n".join(sorted(HRpresence.presence.from_key_to_HRkey.keys())) ))
        return
 
     auth = HRauth.HRauth(**vars(args))
@@ -67,31 +67,31 @@ def main():
         department = p.get_all('department')
         office     = p.get_all('office')
 
-        print("Number of workers    =", len(workers))
+        print(("Number of workers    =", len(workers)))
         if args.verbose > 1:
-            print("   >>>", ", ".join(workers))
+            print(("   >>>", ", ".join(workers)))
 
-        print("Number of bosses     =", len(bosses))
+        print(("Number of bosses     =", len(bosses)))
         if args.verbose:
-            print("   >>>", ", ".join(bosses))
+            print(("   >>>", ", ".join(bosses)))
 
-        print("Number of department =", len(department))
+        print(("Number of department =", len(department)))
         if args.verbose:
-            print("   >>>", ", ".join(department))
+            print(("   >>>", ", ".join(department)))
 
-        print("Number of office     =", len(office))
+        print(("Number of office     =", len(office)))
         if args.verbose:
-            print("   >>>", ", ".join(office))
+            print(("   >>>", ", ".join(office)))
 
 
     if args.key or args.value:
 
            l = p.get_zip(args.key, args.value)
 
-           print("Number of element =", len(l))
+           print(("Number of element =", len(l)))
 
            for i in l:
-               print(" - ".join(i))
+               print((" - ".join(i)))
 
 
 if __name__ == '__main__':

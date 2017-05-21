@@ -2,8 +2,8 @@
 import re
 import datetime
 
-from daylog import DayLog
-from dayloglist import DayLogList
+from .daylog import DayLog
+from .dayloglist import DayLogList
 
 def main():
 
@@ -20,14 +20,14 @@ def main():
    print (d)
 
    print(">>> date()")
-   print(d.date())
+   print((d.date()))
    print(">>> uptime()")
-   print(d.uptime())
+   print((d.uptime()))
 
    print(">>> logins()")
-   print(d.logins())
+   print((d.logins()))
    print(">>> logouts()")
-   print(d.logouts())
+   print((d.logouts()))
 
    time_start = datetime.time(10, 4)
    time_final = datetime.time(10, 5)
@@ -38,11 +38,11 @@ def main():
    print(dstart)
 
    print(">>> uptime from starting time")
-   print(d.uptime(dstart))
+   print((d.uptime(dstart)))
 
    print(">>> ending time")
    print(dfinal)
-   print(d.uptime(dstart, dfinal))
+   print((d.uptime(dstart, dfinal)))
 
    d1 = DayLog(datetime.datetime.today(), ['09:03', '10:13'])
    d2 = DayLog(datetime.datetime.today(), ['11:03', '12:13'])

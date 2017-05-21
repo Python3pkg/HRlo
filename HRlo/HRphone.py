@@ -120,7 +120,7 @@ def main():
 
 
     if args.phone_name or args.phone_number:
-        print(hr_phone.report(names = args.phone_name, phones = args.phone_number))
+        print((hr_phone.report(names = args.phone_name, phones = args.phone_number)))
 
 
 

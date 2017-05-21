@@ -112,7 +112,7 @@ class HRauth(dict):
 
    def _remove_config_file(self):
        if os.path.isfile(self['config_file']):
-         print("Removing config file :", self['config_file'])
+         print(("Removing config file :", self['config_file']))
          os.remove(self['config_file'])
 
 
@@ -196,7 +196,7 @@ def main ():
    auth = HRauth(**vars(args))
 
    if auth.login():
-       print("Successfully login with user: {}".format(auth.username()))
+       print(("Successfully login with user: {}".format(auth.username())))
 
 
 if __name__ == '__main__':
